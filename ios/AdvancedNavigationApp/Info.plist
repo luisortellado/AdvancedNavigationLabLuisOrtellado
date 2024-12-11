@@ -25,6 +25,20 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
+	<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>advancednavigationapp</string>
+        </array>
+    </dict>
+</array>
+
+<key>NSUserActivityTypes</key>
+<array>
+    <string>NSUserActivityTypeBrowsingWeb</string>
+</array>
 	<dict>
 	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>

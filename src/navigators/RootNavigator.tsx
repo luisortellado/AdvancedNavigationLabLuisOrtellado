@@ -1,9 +1,45 @@
 import React, {useContext, useEffect, useState, lazy, Suspense} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer, InitialState} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  InitialState,
+  LinkingOptions,
+} from '@react-navigation/native';
 import {ActivityIndicator, View, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AuthContext} from '../context/AuthContext';
+
+export type RootStackParamList = {
+  Auth: undefined;
+  Login: undefined;
+  Register: undefined;
+  App: undefined;
+  Home: undefined;
+  Profile: undefined;
+  Settings: undefined;
+};
+
+const linking: LinkingOptions<RootStackParamList> = {
+  prefixes: ['advancednavigationapp://', 'https://advancednavigationapp.com'],
+  config: {
+    screens: {
+      Auth: {
+        screens: {
+          Login: 'login',
+          Register: 'register',
+        },
+      },
+      App: {
+        screens: {
+          Home: 'home',
+          Profile: 'profile',
+          Settings: 'settings',
+          Details: 'details/:detailsId',
+        },
+      },
+    },
+  },
+};
 
 const AppNavigator = lazy(() =>
   import('./AppNavigator.tsx').then(module => ({
@@ -52,6 +88,7 @@ const RootNavigator = () => {
   console.log(initialState, 'Initial state');
   return (
     <NavigationContainer
+      linking={linking}
       initialState={initialState}
       onStateChange={state =>
         AsyncStorage.setItem(PERSISTENCE_KEY, JSON.stringify(state))

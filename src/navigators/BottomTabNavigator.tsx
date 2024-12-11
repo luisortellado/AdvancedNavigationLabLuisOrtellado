@@ -13,6 +13,7 @@ const BottomTabNavigator: React.FC = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
+        headerShown: false,
         tabBarIcon: ({color, size}) => {
           switch (route.name) {
             case 'Home':
