@@ -85,7 +85,7 @@ const RootNavigator = () => {
       </View>
     );
   }
-  console.log(initialState, 'Initial state');
+
   return (
     <NavigationContainer
       linking={linking}

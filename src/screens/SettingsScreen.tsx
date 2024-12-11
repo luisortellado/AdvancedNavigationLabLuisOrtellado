@@ -6,20 +6,13 @@ const SettingsScreen: React.FC = () => {
   const {theme, setTheme, language, setLanguage} =
     useContext(PreferencesContext);
 
-  return (
-    <View
-      style={[
-        styles.container,
-        {backgroundColor: theme === 'dark' ? '#333' : '#fff'},
-      ]}>
-      <Text style={[styles.title, {color: theme === 'dark' ? '#fff' : '#000'}]}>
-        Settings
-      </Text>
+  const dynamicStyles = theme === 'dark' ? darkStyles : lightStyles;
 
-      {/* Theme Selection */}
-      <Text style={{color: theme === 'dark' ? '#fff' : '#000'}}>
-        Current Theme: {theme}
-      </Text>
+  return (
+    <View style={[styles.container, dynamicStyles.container]}>
+      <Text style={[styles.title, dynamicStyles.title]}>Settings</Text>
+
+      <Text style={dynamicStyles.text}>Current Theme: {theme}</Text>
       <Button
         title="Switch to Light Theme"
         onPress={() => setTheme('light')}
@@ -31,8 +24,7 @@ const SettingsScreen: React.FC = () => {
         disabled={theme === 'dark'}
       />
 
-      {/* Language Selection */}
-      <Text style={{color: theme === 'dark' ? '#fff' : '#000'}}>
+      <Text style={dynamicStyles.text}>
         Current Language: {language === 'en' ? 'English' : 'Spanish'}
       </Text>
       <Button
@@ -49,6 +41,7 @@ const SettingsScreen: React.FC = () => {
   );
 };
 
+// Estilos comunes
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -59,6 +52,30 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+  },
+});
+
+const lightStyles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+  },
+  title: {
+    color: '#000',
+  },
+  text: {
+    color: '#000',
+  },
+});
+
+const darkStyles = StyleSheet.create({
+  container: {
+    backgroundColor: '#333',
+  },
+  title: {
+    color: '#fff',
+  },
+  text: {
+    color: '#fff',
   },
 });
 

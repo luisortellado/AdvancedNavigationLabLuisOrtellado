@@ -1,12 +1,11 @@
 import React, {memo} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {CaretLeft, Bell, Gear} from 'phosphor-react-native';
+import {CaretLeft, Gear} from 'phosphor-react-native';
 
 interface CustomHeaderProps {
   title: string;
   showBackButton?: boolean;
   onBackPress?: () => void;
-  onNotificationPress?: () => void;
   onSettingsPress?: () => void;
 }
 
@@ -14,11 +13,8 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
   title,
   showBackButton = false,
   onBackPress,
-  onNotificationPress,
   onSettingsPress,
 }) => {
-  console.log('Rendering CustomHeader');
-
   return (
     <View style={styles.container}>
       {showBackButton && (
@@ -31,14 +27,6 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
       )}
       <Text style={styles.title}>{title}</Text>
       <View style={styles.actions}>
-        {onNotificationPress && (
-          <TouchableOpacity
-            style={styles.iconButton}
-            onPress={onNotificationPress}
-            accessibilityLabel="Notifications">
-            <Bell size={24} color="#333" />
-          </TouchableOpacity>
-        )}
         {onSettingsPress && (
           <TouchableOpacity
             style={styles.iconButton}
