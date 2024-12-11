@@ -13,6 +13,7 @@ The application is fully functional and designed to provide a smooth and engagin
 ├── 📁 __tests__         # Unit tests
 ├── 📁 components    # Reusable components
 ├── 📁 screens       # Main application screens
+├── 📁 assets        # Assets files
 ├── 📁 navigators    # Navigation setup
 ├── 📁 context       # Global state management using Context API
 ├── 📁 types         # Types
@@ -125,5 +126,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## ✉️ Contact
 
 - **Author**: Luis Carlos Ortellado Cabral
-- **Email**: youremail@example.com
-- **GitHub**: [github.com/your-username](https://github.com/your-username)
+- **Email**: luis.ortellado.ext@digitalfemsa.com
+- **GitHub**: [luisortellado](https://github.com/luisortellado)
