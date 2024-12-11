@@ -5,6 +5,7 @@ const RegisterScreen = ({navigation}: any) => (
   <View style={styles.container}>
     <Text style={styles.title}>Register</Text>
     <Button
+      accessibilityLabel="Go to Login"
       title="Back to Login"
       onPress={() => navigation.navigate('Login')}
     />

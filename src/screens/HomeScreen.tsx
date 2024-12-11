@@ -2,9 +2,10 @@ import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
 const HomeScreen = ({navigation}: any) => (
-  <View style={styles.container}>
+  <View accessibilityLabel="Home screen" style={styles.container}>
     <Text style={styles.title}>Home</Text>
     <Button
+      accessibilityLabel="Go to Details"
       title="Go to Details"
       onPress={() => navigation.navigate('Details', {id: 1})}
     />

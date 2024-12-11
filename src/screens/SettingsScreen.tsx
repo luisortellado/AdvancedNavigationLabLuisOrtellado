@@ -9,16 +9,24 @@ const SettingsScreen: React.FC = () => {
   const dynamicStyles = theme === 'dark' ? darkStyles : lightStyles;
 
   return (
-    <View style={[styles.container, dynamicStyles.container]}>
-      <Text style={[styles.title, dynamicStyles.title]}>Settings</Text>
+    <View
+      accessibilityLabel="Settings screen"
+      style={[styles.container, dynamicStyles.container]}>
+      <Text
+        accessibilityLabel="Settings"
+        style={[styles.title, dynamicStyles.title]}>
+        Settings
+      </Text>
 
       <Text style={dynamicStyles.text}>Current Theme: {theme}</Text>
       <Button
+        accessibilityLabel="Switch to Light Theme"
         title="Switch to Light Theme"
         onPress={() => setTheme('light')}
         disabled={theme === 'light'}
       />
       <Button
+        accessibilityLabel="Switch to Dark Theme"
         title="Switch to Dark Theme"
         onPress={() => setTheme('dark')}
         disabled={theme === 'dark'}
@@ -28,11 +36,13 @@ const SettingsScreen: React.FC = () => {
         Current Language: {language === 'en' ? 'English' : 'Spanish'}
       </Text>
       <Button
+        accessibilityLabel="Switch to English"
         title="Switch to English"
         onPress={() => setLanguage('en')}
         disabled={language === 'en'}
       />
       <Button
+        accessibilityLabel="Switch to Spanish"
         title="Switch to Spanish"
         onPress={() => setLanguage('es')}
         disabled={language === 'es'}
@@ -41,7 +51,6 @@ const SettingsScreen: React.FC = () => {
   );
 };
 
-// Estilos comunes
 const styles = StyleSheet.create({
   container: {
     flex: 1,

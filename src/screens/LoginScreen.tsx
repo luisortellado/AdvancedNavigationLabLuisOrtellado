@@ -10,6 +10,7 @@ const LoginScreen = ({navigation}: any) => {
       <Text style={styles.title}>Login</Text>
       <Button title="Log In" onPress={login} />
       <Button
+        accessibilityLabel="Go to Register"
         title="Go to Register"
         onPress={() => navigation.navigate('Register')}
       />

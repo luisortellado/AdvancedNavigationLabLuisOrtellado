@@ -29,7 +29,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
           setIsAuthenticated(JSON.parse(storedAuthState));
         }
       } catch (e) {
-        console.error('Error al cargar el estado de autenticación:', e);
+        console.error('Error loading authentication status:', e);
       }
     };
 
@@ -40,7 +40,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     try {
       await AsyncStorage.setItem(AUTH_KEY, JSON.stringify(state));
     } catch (e) {
-      console.error('Error al guardar el estado de autenticación:', e);
+      console.error('Error saving authentication state:', e);
     }
   };
 
